@@ -10,7 +10,7 @@ DOMAIN=`echo $SERVER_HOSTNAME |awk -F. '{$1="";OFS="." ; print $0}' | sed 's/^./
 #Comment default mydestination, we will set it bellow
 sed -i -e '/mydestination/ s/^#*/#/' /etc/postfix/main.cf
 
-echo "myhostname=$SERVER_HOSTNAME"  >> /etc/postfix/main.cf
+echo "myhostname=$SMTP_HOSTNAME"  >> /etc/postfix/main.cf
 echo "mydomain=$DOMAIN"  >> /etc/postfix/main.cf
 echo 'mydestination=$myhostname'  >> /etc/postfix/main.cf
 echo 'myorigin=$mydomain'  >> /etc/postfix/main.cf
